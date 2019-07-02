@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Listado de automoviles </h2>
+
+    <table class="table table-hover table-responsive-lg">
+        <thead>
+            <tr>
+                <th scope="col">Patente</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Año</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in autos %}
+            <tr>
+                <td>{{ a.patente }}</td>
+                <td>{{ a.marca.nombre }}</td>
+                <td>{{ a.modelo }}</td>
+                <td>{{ a.anio }}</td>
+                <td>
+                    {% if a.imagen %}
+                    <img src="{{ a.imagen.url }}" width="200" height="150">
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'eliminar_automovil' a.id %}">
+                        Eliminar
+                    </a>
+                    <a href="{% url 'modificar_automovil' a.id %}">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% if messages %}
+
+    {% for m in messages %}
+
+    <div>{{ m }}</div>
+
+    {% endfor %}
+
+    {% else %}
+    {% endif %}
+
+</div>
+{% endblock content %}

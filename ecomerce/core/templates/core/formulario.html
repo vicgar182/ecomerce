@@ -1,0 +1,96 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3 ">
+            <h1>Registrar automovil</h1>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-6 offset-3 bg-primary">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-3 ">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Patente</label>
+                <div class="col-sm-10">
+                    <input type="text" name="txtPatente" id="txtPatente">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-3 ">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Marca</label>
+                <div class="col-sm-10">
+                    <select name="cboMarca" id="cboMarca">
+                        <option value="">Seleccionar</option>
+                        {% for m in marcas %}
+                        <option value="{{ m.id }}">{{ m.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-3 ">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Modelo</label>
+                <div class="col-sm-10">
+                    <input type="text" name="txtModelo" id="txtModelo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-3 ">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Año</label>
+                <div class="col-sm-10">
+                    <input type="number" name="txtAnio" id="txtAnio">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-3 ">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Imagen</label>
+                <div class="col-sm-10">
+                    <input type="file" name="txtImagen" id="txtImagen">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-3 ">
+            <input type="submit" name="btnAnio" id="btnAnio" value="Guardar">
+        </div>
+        </form>
+    </div>
+
+
+
+</div>
+
+
+
+
+<h1>{{ mensaje }}</h1>
+{% endblock content %}
