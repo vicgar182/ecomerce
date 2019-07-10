@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import home, galeria, formulario, listar_automoviles, eliminar_automovil, modificar_automovil
+from .views import home, galeria, formulario, listar_productos, eliminar_producto, modificar_producto
 
 urlpatterns = [
-    path('', home, name="home"),
+    path('home/', home, name="home"),
     path('galeria/', galeria, name="galeria"),
     path('formulario/', formulario, name="formulario"),
-    path('listar-autos/', listar_automoviles, name="listado_automoviles"),
-    path('eliminar-auto/<id>/', eliminar_automovil, name="eliminar_automovil"),
-    path('modificar-auto/<id>/', modificar_automovil, name="modificar_automovil")
+    path('listar-productos/', listar_productos, name="listado_productos"),
+    path('eliminar-producto/<id>/', eliminar_producto, name="eliminar_producto"),
+    path('modificar-producto/<id>/', modificar_producto, name="modificar_producto"),
 ]

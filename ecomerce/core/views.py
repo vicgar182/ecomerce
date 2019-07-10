@@ -40,14 +40,14 @@ def formulario(request):
 # CRUD de automovil
 
 
-def listar_automoviles(request):
+def listar_productos(request):
     autos = Automovil.objects.all()
-    return render(request, 'core/listar_automoviles.html', {
+    return render(request, 'core/listar_productos.html', {
         'autos': autos
     })
 
 
-def eliminar_automovil(request, id):
+def eliminar_producto(request, id):
     # Buscar el automovil que queremos eliminar
     auto = Automovil.objects.get(id=id)
 
@@ -59,9 +59,9 @@ def eliminar_automovil(request, id):
         mensaje = "No se ha podido eliminar"
         messages.error(request, mensaje)
 
-    return redirect('listado_automoviles')
+    return redirect('listado_productos')
 
-def modificar_automovil(request, id):
+def modificar_producto(request, id):
     #Ubicamos el automovil a moficar
     auto = Automovil.objects.get(id=id)
     marcas = Marca.objects.all() #Solicitamos todas las marcas para llenar el comobox
@@ -86,6 +86,6 @@ def modificar_automovil(request, id):
             messages.success(request, 'Guardado correctamente')
         except:
             messages.error(request, 'No se ha podido modificar')
-        return redirect('listado_automoviles')
+        return redirect('listado_productos')
 
-    return render(request, 'core/modificar_automovil.html', variables)
+    return render(request, 'core/modificar_producto.html', variables)

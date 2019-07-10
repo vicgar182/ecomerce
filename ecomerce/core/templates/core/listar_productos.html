@@ -2,12 +2,12 @@
 
 {% block content %}
 <div class="container">
-    <h2 class="text-center">Listado de automoviles </h2>
+    <h2 class="text-center">Listado de articulos </h2>
 
     <table class="table table-hover table-responsive-lg">
         <thead>
             <tr>
-                <th scope="col">Patente</th>
+                <th scope="col">Articulo</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Año</th>
@@ -28,10 +28,10 @@
                     {% endif %}
                 </td>
                 <td>
-                    <a href="{% url 'eliminar_automovil' a.id %}">
+                    <a href="{% url 'eliminar_producto' a.id %}">
                         Eliminar
                     </a>
-                    <a href="{% url 'modificar_automovil' a.id %}">
+                    <a href="{% url 'modificar_producto' a.id %}">
                         Editar
                     </a>
                 </td>

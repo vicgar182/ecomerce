@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Marca, Automovil  # importamos de models Marca y Automovil
+from .models import Marca, Automovil, Producto  # importamos de models Marca y Automovil
 
 # Register your models here.
 
@@ -13,3 +13,4 @@ class AutomovilAdmin(admin.ModelAdmin):
 
 admin.site.register(Marca)  # Registramos la marca
 admin.site.register(Automovil, AutomovilAdmin)  # Registramos el modelo
+admin.site.register(Producto)  # Registramos el producto
